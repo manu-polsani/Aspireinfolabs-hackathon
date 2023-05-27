@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .navbar {
+      background-color: rgba(10, 5, 5, 0.8);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .navbar-logo {
+      margin-right: auto;
+    }
+
+    .navbar a {
+      text-decoration: solid;
+      color: white; /* Added white text color */
+      margin-right: 10px;
+    }
+    
+    .leaderboard {
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    
+    /* Responsive CSS */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-logo{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .navbar a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+      
+      .leaderboard {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+        <img src="..\photos\logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar-components">
+      <a href="/n_news">NewsFeed</a>
+      <a href="/community">Community</a>
+      <a href="/MyHealth1"> My Health</a>
+
+      <a href="/performance_tracking">performance_tracker</a>
+      <a href="/logout">Logout</a>
+      
+    </div>
+  </div>
+
+  <div class="leaderboard">
+    <h2>Leaderboard</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Coins</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="trophy.png" alt="Trophy" style="vertical-align: middle; margin-right: 5px; width: 20px;">You</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>User 2</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>User 3</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>User 4</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>User 5</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Status</title>
+  <script>
+    function checkHealth() {
+      var Steps = parseFloat(document.getElementById("Steps").value);
+      var weight = parseFloat(document.getElementById("weight").value);
+      var sleep_duration = parseFloat(document.getElementById("sleep_duration").value);
+      var calories_burn = parseFloat(document.getElementById("calories_burn").value);
+      var Water_Intake = parseFloat(document.getElementById("Water_Intake").value);
+
+      var healthStatus;
+      var strategy;
+
+      // Check health status and provide strategies based on conditions
+      if (Steps >= 8000 && Steps <= 10000 && weight >= 60 && weight <= 80 && sleep_duration >= 7 && sleep_duration <= 9 && calories_burn >= 1800 && calories_burn <= 2200 && Water_Intake >= 2.7 && Water_Intake <= 4) {
+        healthStatus = "Healthy";
+        strategy = "Maintain a balanced diet, exercise regularly, get enough sleep, and drink 2.7 - 4 liters of water per day.";
+      } else {
+        healthStatus = "Unhealthy";
+        strategy = "Make sure to meet the recommended daily activity level, manage weight, improve sleep quality, maintain a healthy calorie intake, and drink 2.7 - 4 liters of water per day.";
+      }
+
+      // Display the health status and strategy
+      document.getElementById("healthStatus").innerHTML = healthStatus;
+      document.getElementById("strategy").innerHTML = strategy;
+    }
+  </script>
+</head>
+<body>
+  <h1>Health Status</h1>
+  <h2>Enter Your Data:</h2>
+  <form onsubmit="event.preventDefault(); checkHealth();">
+    <label for="Steps">Steps:</label>
+    <input type="number" id="Steps" name="Steps">
+    <br><br>
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" name="weight">
+    <br><br>
+    <label for="sleep_duration">Sleep Duration:</label>
+    <input type="number" id="sleep_duration" name="sleep_duration">
+    <br><br>
+    <label for="calories_burn">Calories Burned:</label>
+    <input type="number" id="calories_burn" name="calories_burn">
+    <br><br>
+    <label for="Water_Intake">Water Intake:</label>
+    <input type="number" id="Water_Intake" name="Water_Intake">
+    <br><br>
+    <input type="submit" value="Check Health">
+  </form>
+  <br><br>
+  <h2>Result:</h2>
+  <p>Health Status: <span id="healthStatus"></span></p>
+  <p>Strategy: <span id="strategy"></span></p>
+</body>
+</html>

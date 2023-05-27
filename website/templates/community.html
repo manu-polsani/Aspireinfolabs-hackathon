@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FitFriends - Community</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .navbar {
+      background-color: rgb(0, 0, 0);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      margin-right: auto;
+      min-height: 10vh;
+      width : 60px ;
+      height : 60px ;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      margin-right: 10px;
+    }
+
+    .profile-form {
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .profile-form input, .profile-form select {
+      margin: 10px 0;
+      padding: 5px;
+      width: 80%;
+    }
+
+    .profile-form button {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .communities {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+
+    .community {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: calc(33% - 20px);
+  border: 2px solid #000; /* This line adds a border */
+}
+
+
+    .community h3 {
+      margin: 0;
+    }
+
+    .community p {
+      margin: 10px 0;
+    }
+
+    /* Responsive CSS */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-logo{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }     }
+
+      .community {
+        width: 100%;
+      }
+      .navbar a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+
+      .profile-form input, .profile-form select {
+        width: 90%;
+      }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <div class="navbar-components">
+      <!-- <a href="#">NewsFeed</a>
+      <a href="#">Community</a>
+      <a href="#">Friends</a>
+      <a href="#">My Health</a> -->
+    </div>
+  </div>
+  <div style="text-align: right; margin: 20px;">
+    <a>
+      <button id="addCommunityBtn">Add Community</button>
+    </a>
+  </div>
+
+  <div class="communities">
+    <div class="community">
+      <h3>Cancer</h3>
+      <p>Cancer causes cells to divide uncontrollably. This can result in tumors, damage to the immune system, and other impairment that can be fatal</p>
+    </div>
+    <div class="community">
+      <h3>Weight Loss</h3>
+      <p>People with obesity have a higher risk of various health complications. For this reason, many people would like to lose weight. Ways of losing weight can include dietary changes, exercising, using supplements, and setting realistic targets.</p>
+    </div>
+    <div class="community">
+      <h3>Diabates</h3>
+      <p>Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces.</p>
+      
+      </div>
+      
+      <script>
+        document.getElementById('addCommunityBtn').onclick = function() {
+            var communityName = prompt("Enter the community name:");
+            var communityDescription = prompt("Enter the community description:");
+        
+            if (communityName && communityDescription) {
+                var communityDiv = document.createElement('div');
+                communityDiv.className = 'community';
+        
+                var communityTitle = document.createElement('h3');
+                communityTitle.textContent = communityName;
+                communityDiv.appendChild(communityTitle);
+        
+                var communityDescriptionParagraph = document.createElement('p');
+                communityDescriptionParagraph.textContent = communityDescription;
+                communityDiv.appendChild(communityDescriptionParagraph);
+        
+                document.getElementsByClassName('communities')[0].appendChild(communityDiv);
+            } else {
+                alert("You must enter a community name and description");
+            }
+        }
+        </script>
+        
+      
+      
+        
+      </body>
+      </html>

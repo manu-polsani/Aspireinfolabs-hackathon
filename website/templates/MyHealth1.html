@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website - User Profile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .navbar, .sub-navbar {
+      background-color: rgb(0, 0, 0);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      margin-right: auto;
+      min-height: 10vh;
+      width : 60px ;
+      height : 60px ;
+    }
+
+    .navbar a, .sub-navbar a {
+      text-decoration: none;
+      color: white;
+      margin-right: 10px;
+    }
+
+    .profile {
+      margin: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .profile h2 {
+      margin: 20px 0 10px 0;
+    }
+
+    /* Responsive CSS */
+    @media (max-width: 600px) {
+      .navbar, .sub-navbar {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-logo{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .navbar a, .sub-navbar a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <div class="navbar-components">
+      <a href="n_news.html">NewsFeed</a>
+      <a href="#">Community</a>
+      <a href="home.html">Friends</a>
+      <!-- <a href="MyHealth1.html">My Health</a> -->
+    </div>
+  </div>
+
+  <div class="sub-navbar">
+    <a href="performance_tracking.html">Performance Tracking</a>
+    <a href="DailyProgress.html">Daily Progress</a>
+  </div>
+
+  <div class="profile">
+    <img src="download.jpeg" alt="User's profile picture">
+    <h2>User's Name</h2>
+    <p><strong>Age:</strong> User's Age</p>
+    <p><strong>Gender:</strong> User's Gender</p>
+    <p><strong>Email:</strong> user@example.com</p>
+    <a href="edit-profile.html"><button>Edit Profile</button></a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .navbar {
+      background-color: rgba(9, 9, 9, 0.8);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .navbar-logo {
+      margin-right: auto;
+      min-height: 10vh;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white; /* Added white text color */
+      margin-right: 10px;
+    }
+    
+    
+    table {
+      width: 100%;
+      max-width: 600px; /* Decreased width for mobile screens */
+      height: auto; /* Increased height to fit content */
+      margin: 0 auto; /* Centering the table horizontally */
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px; /* Increased font size for better visibility */
+    }
+    
+    /* Responsive CSS */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-logo{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .navbar a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+    
+    /* Additional styles */
+    .highlighted-heading {
+      background-color: rgba(9, 9, 9, 0.8);
+      color: white;
+      padding: 10px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    
+    .card-heading {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="C:\Users\manup\OneDrive\Desktop\hackathon2\Website3\website\photos\logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar-components">
+      <a href="#">NewsFeed</a>
+      <a href="#">Community</a>
+      <a href="#">Health</a>
+      <a href="#">Profile</a>
+    </div>
+  </div>
+
+  <div class="highlighted-heading">
+    <h2>Daily Activity</h2>
+  </div>
+  
+  <div class="card">
+    <h3>Number of Steps</h3>
+    <p>10000 steps</p>
+  </div>
+  <div class="card">
+    <h3>Calories Burnt</h3>
+    <p>500 calories</p>
+  </div>
+  <div class="card">
+    <h3>Water Consumed</h3>
+    <p>2 liters</p>
+  </div>
+  <div class="card">
+    <h3>Daily Goals</h3>
+    <p>Input: <input type="text" id="ml-input"></p>
+    <p>Output: <span id="ml-output"></span></p>
+</div>
+<div class="card">
+  <h3>Strategies</h3>
+  <p>[Content from Google Health Care Link]</p>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .navbar {
+      background-color: rgba(9, 9, 9, 0.8);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    
+    .navbar-logo {
+      margin-right: auto;
+      min-height: 10vh;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white; /* Added white text color */
+      margin-right: 10px;
+    }
+    
+    
+    table {
+      width: 100%;
+      max-width: 600px; /* Decreased width for mobile screens */
+      height: auto; /* Increased height to fit content */
+      margin: 0 auto; /* Centering the table horizontally */
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px; /* Increased font size for better visibility */
+    }
+    
+    /* Responsive CSS */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-logo{
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .navbar a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
+    
+    /* Additional styles */
+    .highlighted-heading {
+      background-color: rgba(9, 9, 9, 0.8);
+      color: white;
+      padding: 10px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    
+    .card-heading {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="C:\Users\manup\OneDrive\Desktop\hackathon2\Website3\website\photos\logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar-components">
+      <a href="#">NewsFeed</a>
+      <a href="#">Community</a>
+      <a href="#">Health</a>
+      <a href="#">Profile</a>
+    </div>
+  </div>
+
+  <div class="highlighted-heading">
+    <h2>Daily Activity</h2>
+  </div>
+  
+  <div class="card">
+    <h3>Number of Steps</h3>
+    <p>10000 steps</p>
+  </div>
+  <div class="card">
+    <h3>Calories Burnt</h3>
+    <p>500 calories</p>
+  </div>
+  <div class="card">
+    <h3>Water Consumed</h3>
+    <p>2 liters</p>
+  </div>
+  <div class="card">
+    <h3>Daily Goals</h3>
+    <p>Input: <input type="text" id="ml-input"></p>
+    <p>Output: <span id="ml-output"></span></p>
+</div>
+<div class="card">
+  <h3>Strategies</h3>
+  <p>[Content from Google Health Care Link]</p>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const mlInput = document.getElementById("ml-input");
+    const mlOutput = document.getElementById("ml-output");
+
+    // Function to make a request to the ML model and update the output
+    function predict() {
+      const inputData = {
+        newsFeed: document.querySelector(".navbar-components a:nth-of-type(1)").textContent,
+        community: document.querySelector(".navbar-components a:nth-of-type(2)").textContent,
+        health: document.querySelector(".navbar-components a:nth-of-type(3)").textContent,
+        profile: document.querySelector(".navbar-components a:nth-of-type(4)").textContent
+      };
+
+      // Make a request to the ML model's endpoint
+      fetch("[Your ML Model Endpoint]", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(inputData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Update the ML output on the web page
+          mlOutput.textContent = data.prediction;
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    }
+
+    // Listen for input changes and trigger the ML prediction
+    mlInput.addEventListener("input", predict);
+  });
+</script>
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const mlInput = document.getElementById("ml-input");
+    const mlOutput = document.getElementById("ml-output");
+
+    // Function to make a request to the ML model and update the output
+    function predict() {
+      const inputData = {
+        newsFeed: document.querySelector(".navbar-components a:nth-of-type(1)").textContent,
+        community: document.querySelector(".navbar-components a:nth-of-type(2)").textContent,
+        health: document.querySelector(".navbar-components a:nth-of-type(3)").textContent,
+        profile: document.querySelector(".navbar-components a:nth-of-type(4)").textContent
+      };
+
+      // Make a request to the ML model's endpoint
+      fetch("[Your ML Model Endpoint]", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(inputData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Update the ML output on the web page
+          mlOutput.textContent = data.prediction;
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    }
+
+    // Listen for input changes and trigger the ML prediction
+    mlInput.addEventListener("input", predict);
+  });
+</script>
+</body>
+</html>

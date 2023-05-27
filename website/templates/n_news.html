@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Healthcare Website</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 800px;
+    }
+
+    .create-post {
+      margin-bottom: 20px;
+    }
+
+    .create-post h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .create-post form {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .create-post input[type="text"],
+    .create-post textarea {
+      width: 100%;
+      padding: 5px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .create-post button[type="submit"] {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .create-post button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .post-container {
+      text-align: center;
+    }
+
+    .post {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .post img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .post h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      margin-bottom: 10px;
+    }
+
+    .post .like-button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .post .like-button:hover {
+      background-color: #0056b3;
+    }
+
+    .post .like-count {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .post .delete-button {
+      padding: 5px 10px;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .post .delete-button:hover {
+      background-color: #b32434;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="create-post">
+      <h2>Create a New Post</h2>
+      <form id="postForm">
+        <input type="text" id="postTitle" placeholder="Enter post title" required><br>
+        <input type="file" id="postImage" accept="image/*" required><br>
+        <textarea id="postContent" placeholder="Enter post content" required></textarea><br>
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+    <div class="post-container">
+      <h2>Recent Posts</h2>
+      <div id="postsContainer"></div>
+    </div>
+  </div>
+  <script>
+   // JavaScript code to handle form submission and post display
+const postForm = document.getElementById('postForm');
+const postsContainer = document.getElementById('postsContainer');
+
+// Check if a user has already liked a post using localStorage
+function hasUserLikedPost(postId) {
+  const likedPosts = JSON.parse(localStorage.getItem('likedPosts')) || [];
+  return likedPosts.includes(postId);
+}
+
+// Save the liked post ID to localStorage
+function saveLikedPost(postId) {
+  const likedPosts = JSON.parse(localStorage.getItem('likedPosts')) || [];
+  likedPosts.push(postId);
+  localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+}
+
+// Save the posted data to localStorage
+function savePostedData(postId, postData) {
+  const postedData = JSON.parse(localStorage.getItem('postedData')) || {};
+  postedData[postId] = postData;
+  localStorage.setItem('postedData', JSON.stringify(postedData));
+}
+
+// Load the posted data from localStorage
+function loadPostedData() {
+  const postedData = JSON.parse(localStorage.getItem('postedData')) || {};
+  Object.entries(postedData).forEach(([postId, postData]) => {
+    createPostElement(postId, postData);
+  });
+}
+
+// Create a new post element with the given data
+function createPostElement(postId, postData) {
+  const { title, image, content, likes } = postData;
+
+  // Create new post element
+  const postElement = document.createElement('div');
+  postElement.className = 'post';
+
+  // Create title element
+  const titleElement = document.createElement('h3');
+  titleElement.innerText = title;
+  postElement.appendChild(titleElement);
+
+  // Create image element
+  const imageElement = document.createElement('img');
+  imageElement.src = image;
+  postElement.appendChild(imageElement);
+
+  // Create content element
+  const contentElement = document.createElement('p');
+  contentElement.innerText = content;
+  postElement.appendChild(contentElement);
+
+  // Create like button
+  const likeButton = document.createElement('button');
+  likeButton.className = 'like-button';
+  likeButton.innerText = 'Like';
+  likeButton.dataset.likes = likes.toString(); // Initialize likes count
+  likeButton.addEventListener('click', function() {
+    // Check if the user has already liked the post
+    if (!hasUserLikedPost(postId)) {
+      // Get current likes count
+      let likes = parseInt(likeButton.dataset.likes);
+
+      // Increment likes count
+      likes++;
+
+      // Update the likes count
+      likeButton.dataset.likes = likes;
+      likeCount.innerText = likes;
+
+      // Save the liked post ID to localStorage
+      saveLikedPost(postId);
+
+      // Your code for handling like button click goes here
+      // You can also make an API request to update the likes count on the server
+    }
+  });
+  postElement.appendChild(likeButton);
+
+  // Create like count element
+  const likeCount = document.createElement('span');
+  likeCount.className = 'like-count';
+  likeCount.innerText = likes.toString();
+  postElement.appendChild(likeCount);
+
+  // Create delete button
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete-button';
+  deleteButton.innerText = 'Delete';
+  deleteButton.addEventListener('click', function() {
+    // Your code for handling delete button click goes here
+    // This is just a sample implementation that removes the post from the DOM
+    postElement.remove();
+    deletePostedData(postId);
+  });
+  postElement.appendChild(deleteButton);
+
+  // Set the post
+    // Set the post ID as the element's ID
+    postElement.id = postId;
+
+// Add post to posts container
+postsContainer.insertBefore(postElement, postsContainer.firstChild);
+}
+
+// Delete the posted data from localStorage
+function deletePostedData(postId) {
+const postedData = JSON.parse(localStorage.getItem('postedData')) || {};
+delete postedData[postId];
+localStorage.setItem('postedData', JSON.stringify(postedData));
+}
+
+postForm.addEventListener('submit', function(event) {
+event.preventDefault();
+
+// Get form values
+const title = document.getElementById('postTitle').value;
+const image = document.getElementById('postImage').files[0];
+const content = document.getElementById('postContent').value;
+
+// Create new post ID
+const postId = Date.now().toString();
+
+// Create post data object
+const postData = {
+  title: title,
+  image: URL.createObjectURL(image),
+  content: content,
+  likes: 0
+};
+
+// Save the posted data to localStorage
+savePostedData(postId, postData);
+
+// Create and append the post element
+createPostElement(postId, postData);
+
+// Reset the form
+//postForm.reset();
+});
+
+// Load the posted data when the page is loaded
+loadPostedData();
+</script>
+</body>
+</html>
